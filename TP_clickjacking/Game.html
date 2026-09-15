@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title> Catch Me! </title>
+    <style>
+        #catchButton {
+            position: absolute;
+            top: 450px;
+            left: 400px;
+            z-index: 2;
+        }
+
+        iframe {
+            position: absolute;
+            top: 48px;
+            left: 20px;
+            opacity: 0;
+            border: none;
+            z-index: 0;
+        }
+    </style>
+</head>
+
+<body>
+
+<h1>Catch Me!</h1>
+<p> Score: <span id="score">0</span> </p>
+
+<button id="catchButton" onclick="moveButton()" >Catch Me</button>
+
+<button id="revealButton" style="position: absolute; bottom: 50px; left: 0px;" onclick="revealattack()">Reveal Hidden Page</button>
+
+<iframe src = "Portal.html"  style="position: absolute; top: 48px; left: 20px; opacity: 0; border: none;"></iframe>
+
+<script>
+
+    var button = document.getElementById("catchButton");
+    let score = 0;
+
+    function moveButton() {
+        score++;
+        document.getElementById("score").innerText = score;
+        var iframe = document.querySelector("iframe");
+
+        if (score > 4) {
+            button.style.zIndex = "1";
+            iframe.style.zIndex = "3";
+            button.style.left = "200px";
+            button.style.top = "150px";
+        } else {
+            button.style.zIndex = "2";
+            iframe.style.zIndex = "0";
+            iframe.style.opacity = "0";
+            var x = Math.floor(Math.random() * (window.innerWidth - button.offsetWidth));
+            var y = Math.floor(Math.random() * (window.innerHeight - button.offsetHeight));
+            button.style.left = x + "px";
+            button.style.top = y + "px";
+        }
+    }
+
+    function revealattack() {
+        var iframe = document.querySelector("iframe");
+        iframe.style.opacity = "1";
+    }
+</script>
+
+
+
+</body>
+</html>
