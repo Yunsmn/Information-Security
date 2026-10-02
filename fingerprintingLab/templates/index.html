@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <h2>Active Feature Collection</h2>
+    <pre id="feature-output">Waiting for JavaScript...</pre>
+
+    <p id="fingerprint-output"></p>
+
+    <h2>The Typing Imposter</h2>
+    <p id="target-sentence">Cookies are gone, but Alice leaves traces</p>
+    <input id="typing-input" size="60">
+    <button id="restart-button">Restart</button>
+
+    <p id="typing-time"></p>
+    <p id="typing-speed"></p>
+    <p id="typing-corrections"></p>
+
+    <script src="{{ url_for('static', filename='fingerprint.js') }}"></script>
+    <script src="{{ url_for('static', filename='fingerprint2.js') }}"></script>
+</body>
+
+</html>
